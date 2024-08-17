@@ -57,15 +57,16 @@ const Form = () => {
   const TimeRange = [...currentDoctor.timings];
 
   const isValidTime = (time: string) => {
-    if (!selectedDate) return false; // No date selected, so time is not valid
+    if (!selectedDate) return false; 
 
     const now = dayjs();
+    // @ts-ignore
     const [start, end] = time.split(" - ").map((t) => dayjs(t, "hh:mm a"));
 
-    // Check if the selected date is today or in the future
+    
     const isDateValid = selectedDate.isAfter(dayjs().startOf("day")) || selectedDate.isSame(dayjs().startOf("day"), "day");
 
-    // If the selected date is today, check if the current time is before the end time
+   
     const isTimeValid = isDateValid && (selectedDate.isAfter(dayjs().startOf("day")) || now.isBefore(end));
 
     return isTimeValid;

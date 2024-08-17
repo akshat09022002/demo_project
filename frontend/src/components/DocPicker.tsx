@@ -68,7 +68,9 @@ const DocPicker = () => {
       <div className="flex flex-col items-center rounded-md bg-[#00c9b7] overflow-y-auto h-[412px] w-screen sm:w-screen max-w-screen md:max-w-[600px]">
         <div className="text-3xl mt-8 text-white font-bold">Switch User</div>
         <div className="w-full">
-          {doctors.map((doctor: any, index: any) => {
+          
+          {//@ts-ignore
+          doctors.map((doctor: any, index: any) => {
             return (
              <button onClick={()=>{
                 changeDoctor(doctor);
