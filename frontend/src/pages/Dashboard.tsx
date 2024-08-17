@@ -195,7 +195,7 @@ const Dashboard = () => {
             </Dropdown.Item>
           </Dropdown>
         </div>
-        <div className="p-4 flex flex-row justify-between w-full">
+        <div className="p-4 flex flex-row justify-between w-screen">
           <div className="flex flex-row">
             <div className="mr-3 ">
               <ThemeProvider theme={newTheme(baseTheme)}>
