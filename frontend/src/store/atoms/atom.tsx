@@ -1,5 +1,25 @@
 import { atom, selector } from "recoil";
 
+export const registerUser:any= atom({
+  key:"registerUser",
+  default: false
+})
+
+export const users_entry= atom({
+  key:"users_entry",
+  default:[{
+    name:"Queuemate",
+    phone:"9999999999",
+    email:"queuemate@gmail.com",
+    password:"queuemate",
+  },{
+    name:"Joshua",
+    phone:"1111111111",
+    email:"joshua@gmail.com",
+    password:"joshua"
+  }]
+})
+
 export const current_app = atom({
   key: "current-app",
   default: {
