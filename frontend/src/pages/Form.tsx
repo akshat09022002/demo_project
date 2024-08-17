@@ -1,7 +1,7 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import doctorImage1 from "../assets/doctor.png";
 import doctorImage2 from "../assets/doctor2.png";
-import { doctor_detail, toggle_Drawer, timeSelector, Appointments } from "../store/atoms/atom";
+import { doctor_detail,  timeSelector, Appointments } from "../store/atoms/atom";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -43,7 +43,7 @@ const Form = () => {
   const [appointments, setAppointments]: any = useRecoilState(Appointments);
   const currentDoctor = useRecoilValue(doctor_detail);
   const setTime = useSetRecoilState(timeSelector);
-  const [selectedDate, setSelectedDate] = useState<dayjs.Dayjs | null>(null);
+  const [selectedDate, setSelectedDate]:any = useState<dayjs.Dayjs | null>(null);
   const [selectedTime, setSelectedTime] = useState("");
   const [formData, setFormData] = useState({
     name: "",
