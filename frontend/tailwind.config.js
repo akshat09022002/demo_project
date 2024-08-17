@@ -6,6 +6,9 @@ export default {
     "node_modules/flowbite-react/lib/esm/**/*.js",
   ],
   theme: {
+    screens: {
+      'mobile' : '500px'
+    },
     extend: {},
   },
   plugins: [require("flowbite/plugin")],

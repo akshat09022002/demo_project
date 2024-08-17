@@ -49,6 +49,7 @@ const newTheme = (theme: any) =>
             borderColor: "#2196f3",
             border: "1px solid",
             backgroundColor: "#00c9b7",
+            
           },
         },
       },
@@ -195,9 +196,9 @@ const Dashboard = () => {
             </Dropdown.Item>
           </Dropdown>
         </div>
-        <div className="p-4 flex flex-row justify-between w-screen">
+        <div className="p-4 flex flex-row justify-between w-full">
           <div className="flex flex-row">
-            <div className="mr-3 ">
+            <div className="mr-3">
               <ThemeProvider theme={newTheme(baseTheme)}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["DatePicker"]}>
@@ -216,14 +217,14 @@ const Dashboard = () => {
               onClick={() => {
                 timerVisible(true);
               }}
-              className="flex flex-col justify-center items-center p-2 mt-2 border-[1.32px] border-gray-300 rounded-md w-[180px] h-[56px]"
+              className="flex flex-col justify-center items-center p-2 mt-2 border-[1.32px] border-gray-300 rounded-md w-[100px] h-[56px]"
             >
               {currentTime}
             </span>
           </div>
           <div className="mt-4">
             <button
-              className="flex flex-row py-1 pl-2  rounded-md  justify-center items-center hover:bg-gray-200"
+              className="hidden mobile:flex flex-row py-1 pl-2  rounded-md  justify-center items-center hover:bg-gray-200 visible"
               onClick={() => {
                 window.location.reload();
               }}
