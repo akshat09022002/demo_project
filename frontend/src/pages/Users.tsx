@@ -1,7 +1,7 @@
 import Sidebarr from "../components/Sidebarr";
 import { FiAlignJustify } from "react-icons/fi";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { doctor_detail, docWindow, registerUser, toggle_Drawer, users, users_entry } from "../store/atoms/atom";
+import { doctor_detail, docWindow, registerUser, toggle_Drawer, users_entry } from "../store/atoms/atom";
 import { Dropdown } from "flowbite-react";
 import doctor from "../assets/doctor.png";
 import doctor2 from "../assets/doctor2.png";
