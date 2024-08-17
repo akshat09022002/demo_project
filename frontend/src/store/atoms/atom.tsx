@@ -12,11 +12,13 @@ export const users_entry= atom({
     phone:"9999999999",
     email:"queuemate@gmail.com",
     password:"queuemate",
+    confirmPassword:"queuemate"
   },{
     name:"Joshua",
     phone:"1111111111",
     email:"joshua@gmail.com",
-    password:"joshua"
+    password:"joshua",
+    confirmPassword:"joshua"
   }]
 })
 

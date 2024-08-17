@@ -21,11 +21,9 @@ const Users = () => {
   useEffect(()=>{
    const local_users=localStorage.getItem('users');
    if(local_users){
-     curr_users(JSON.parse(local_users));
+     set_users(JSON.parse(local_users));
    }
-    
   },[])
-
 
   return (
     <div className="max-h-screen max-w-screen">
