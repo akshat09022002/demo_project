@@ -8,6 +8,7 @@ import { RecoilRoot } from "recoil"
 import Dashboard from "./pages/Dashboard"
 import Form from './pages/Form';
 import Details from './pages/Details';
+import Users from './pages/Users';
  
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
         <Route path='/form' element={<Form></Form>}></Route>
         <Route path='/details' element={<Details></Details>}></Route>
+        <Route path='/users' element={<Users></Users>}></Route>
       </Routes>
     </BrowserRouter>
     </RecoilRoot>

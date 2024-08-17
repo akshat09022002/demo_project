@@ -58,7 +58,7 @@ export default function Sidebarr() {
         <ListItem disablePadding>
           <ListItemButton
             onClick={() => {
-              navigate("/Users");
+              navigate("/users");
             }}
           >
             <ListItemIcon>
@@ -70,7 +70,7 @@ export default function Sidebarr() {
         <ListItem disablePadding>
           <ListItemButton
             onClick={() => {
-              navigate("/Reports");
+              navigate("/reports");
             }}
           >
             <ListItemIcon>
