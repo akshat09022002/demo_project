@@ -7,7 +7,7 @@ import doctor from "../assets/doctor.png";
 import doctor2 from "../assets/doctor2.png";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import UserRegister from "../components/userRegister";
+import UserRegister from "../components/UserRegister";
 
 const Users = () => {
   const navigate = useNavigate();
