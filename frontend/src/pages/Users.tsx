@@ -1,7 +1,13 @@
 import Sidebarr from "../components/Sidebarr";
 import { FiAlignJustify } from "react-icons/fi";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { doctor_detail, docWindow, registerUser, toggle_Drawer, users_entry } from "../store/atoms/atom";
+import {
+  doctor_detail,
+  docWindow,
+  registerUser,
+  toggle_Drawer,
+  users_entry,
+} from "../store/atoms/atom";
 import { Dropdown } from "flowbite-react";
 import doctor from "../assets/doctor.png";
 import doctor2 from "../assets/doctor2.png";
@@ -14,16 +20,30 @@ const Users = () => {
   const setdocwindow = useSetRecoilState(docWindow);
   const settoggledrawer = useSetRecoilState(toggle_Drawer);
   const currentDoctor = useRecoilValue(doctor_detail);
-  const [curr_users,set_users]:any=useRecoilState(users_entry);
-  const [userWindow,setUserWindow] = useRecoilState(registerUser);
-  
+  const [curr_users, set_users]: any = useRecoilState(users_entry);
+  const [userWindow, setUserWindow] = useRecoilState(registerUser);
 
-  useEffect(()=>{
-   const local_users=localStorage.getItem('users');
-   if(local_users){
-     set_users(JSON.parse(local_users));
-   }
-  },[])
+  useEffect(() => {
+    const local_users = localStorage.getItem("users");
+    if (local_users) {
+      set_users(JSON.parse(local_users));
+    }
+  }, []);
+
+  const handleDelete = (userToDelete: any) => {
+    console.log(userToDelete);
+    const updatedUsers = curr_users.filter(
+      (user:any) =>
+        !(
+          user.name === userToDelete.name &&
+          user.email === userToDelete.email
+        )
+    );
+
+    console.log(updatedUsers);
+    set_users(updatedUsers);
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+  };
 
   return (
     <div className="max-h-screen max-w-screen">
@@ -76,7 +96,6 @@ const Users = () => {
         </Dropdown>
       </div>
 
-      
       <div className="p-6 bg-gray-100 rounded-lg shadow-lg mt-6 mx-4">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-gray-800 font-semibold text-xl">
@@ -92,13 +111,18 @@ const Users = () => {
           </button>
         </div>
         <div className="space-y-4">
-            {curr_users.map((user:any)=>{
-                return <div className="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
+          {curr_users.map((user: any) => {
+            return (
+              <div className="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
                 <div className="flex flex-col">
-                  <p className="text-gray-900 font-medium text-lg">{user.name}</p>
-                  <button className="text-teal-500 text-sm">All Permissions</button>
-                 </div>
-                 <Dropdown
+                  <p className="text-gray-900 font-medium text-lg">
+                    {user.name}
+                  </p>
+                  <button className="text-teal-500 text-sm">
+                    All Permissions
+                  </button>
+                </div>
+                <Dropdown
                   className="h-32 w-34 flex flex-col justify-center items-center"
                   label=""
                   dismissOnClick={false}
@@ -108,11 +132,11 @@ const Users = () => {
                       fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
-                     >
+                    >
                       <path d="M21 7L17 3 5 15v4h4L21 7zM3 17h18v2H3v-2z" />
                     </svg>
                   )}
-                 >
+                >
                   <Dropdown.Item
                     onClick={() => setdocwindow(true)}
                     className="w-full text-sm"
@@ -126,14 +150,17 @@ const Users = () => {
                     View/Edit Details
                   </Dropdown.Item>
                   <Dropdown.Item
-                    onClick={() => navigate("/")}
+                    onClick={() => {
+                      handleDelete(user);
+                    }}
                     className="w-full text-sm"
                   >
                     Delete User
                   </Dropdown.Item>
                 </Dropdown>
               </div>
-            })}
+            );
+          })}
         </div>
       </div>
     </div>
